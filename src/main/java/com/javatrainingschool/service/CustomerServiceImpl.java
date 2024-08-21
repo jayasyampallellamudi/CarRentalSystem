@@ -15,12 +15,13 @@ public class CustomerServiceImpl implements CustomerService{
 	private CustomerRepository repository;
 	
 	public CustomerManagement saveCustomer(CustomerManagement management) {
-		
-		return management;
+		CustomerManagement management2 = repository.save(management);
+		return management2;
 	}
 
 	public List<CustomerManagement> retriveCustomer() {
 		List<CustomerManagement> list = repository.findAll();
+		list.forEach(s -> s.setUserName("prasad"));
 		return list;
 	}
 

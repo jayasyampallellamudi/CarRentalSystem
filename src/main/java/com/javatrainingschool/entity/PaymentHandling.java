@@ -15,11 +15,11 @@ public class PaymentHandling {
 	@Id
 	private int paymentId;
 	
-	@ManyToAny
+	@ManyToOne
     @JoinColumn(name = "custId", nullable = false)
     private CustomerManagement customer;
 	
-	@ManyToAny
+	@ManyToOne
     @JoinColumn(name = "leaseId", nullable = false)
     private LeaseManagement lease;
 	

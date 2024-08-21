@@ -20,7 +20,7 @@ public class LeaseManagement {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int leaseId;
 	
-	@ManyToAny
+	@ManyToOne
     @JoinColumn(name = "custId", nullable = false)
     private CustomerManagement customer;
 	
@@ -32,6 +32,7 @@ public class LeaseManagement {
 	private Date leaseEndDate;
 	private int leaseDuration;
 	private String leaseType;
+	
 	public int getLeaseId() {
 		return leaseId;
 	}
