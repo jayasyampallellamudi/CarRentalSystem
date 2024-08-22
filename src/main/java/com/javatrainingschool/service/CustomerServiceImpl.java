@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javatrainingschool.entity.CustomerManagement;
+import com.javatrainingschool.exception.CustomerException;
 import com.javatrainingschool.repository.CustomerRepository;
 
 @Service
@@ -27,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	public CustomerManagement retriveCustomerById(int id) {
-		return repository.findById(id).get();
+		return repository.findById(id).orElseThrow(() -> new CustomerException(id));
 	}
 	
 	public CustomerManagement updateCustomer(CustomerManagement management) {

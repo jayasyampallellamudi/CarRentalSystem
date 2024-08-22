@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javatrainingschool.entity.CarManagement;
+import com.javatrainingschool.exception.CarException;
 import com.javatrainingschool.repository.CarRepository;
 
 @Service
@@ -25,7 +26,7 @@ public class CarServiceImpl implements CarService{
 	}
 
 	public CarManagement retriveCarById(int id) {
-		return repository.findById(id).get();
+		return repository.findById(id).orElseThrow(() -> new CarException(id));
 	}
 	
 	public CarManagement updateCar(CarManagement management) {

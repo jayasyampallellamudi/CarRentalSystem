@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.javatrainingschool.entity.LeaseManagement;
+import com.javatrainingschool.exception.LeaseException;
 import com.javatrainingschool.repository.LeaseRepository;
 
 public class LeaseServiceImpl implements LeaseService{
@@ -23,7 +24,7 @@ public class LeaseServiceImpl implements LeaseService{
 	}
 
 	public LeaseManagement retriveLeaseById(int id) {
-		return repository.findById(id).get();
+		return repository.findById(id).orElseThrow(() -> new LeaseException(id));
 	}
 	
 	public LeaseManagement updateLease(LeaseManagement management) {
