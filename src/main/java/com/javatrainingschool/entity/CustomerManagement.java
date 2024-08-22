@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Customer")
@@ -12,12 +13,18 @@ public class CustomerManagement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int custId;
+	@NotNull
 	private String userName;
+	@NotNull
 	private int age;
 	private String gender;
-	private double mobileNumber;
+	@NotNull
+	private String mobileNumber;
+	@NotNull
 	private String emailId;
+	@NotNull
 	private String address;
+	@NotNull
 	private String drivingLicence;
 	public int getCustId() {
 		return custId;
@@ -43,10 +50,10 @@ public class CustomerManagement {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public double getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
-	public void setMobileNumber(double mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 	public String getEmailId() {
@@ -73,7 +80,7 @@ public class CustomerManagement {
 				+ ", mobileNumber=" + mobileNumber + ", emailId=" + emailId + ", address=" + address
 				+ ", drivingLicence=" + drivingLicence + "]";
 	}
-	public CustomerManagement(int custId, String userName, int age, String gender, double mobileNumber, String emailId,
+	public CustomerManagement(int custId, String userName, int age, String gender, String mobileNumber, String emailId,
 			String address, String drivingLicence) {
 		super();
 		this.custId = custId;

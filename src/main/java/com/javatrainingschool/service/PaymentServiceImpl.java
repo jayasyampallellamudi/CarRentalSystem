@@ -3,11 +3,13 @@ package com.javatrainingschool.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.javatrainingschool.entity.PaymentHandling;
 import com.javatrainingschool.exception.PaymentException;
 import com.javatrainingschool.repository.PaymentRepository;
 
+@Service
 public class PaymentServiceImpl {
 	
 	@Autowired

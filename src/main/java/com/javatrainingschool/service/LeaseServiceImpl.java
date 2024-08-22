@@ -3,11 +3,13 @@ package com.javatrainingschool.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.javatrainingschool.entity.LeaseManagement;
 import com.javatrainingschool.exception.LeaseException;
 import com.javatrainingschool.repository.LeaseRepository;
 
+@Service
 public class LeaseServiceImpl implements LeaseService{
 	
 	@Autowired

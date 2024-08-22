@@ -10,7 +10,7 @@ import com.javatrainingschool.exception.CarException;
 import com.javatrainingschool.repository.CarRepository;
 
 @Service
-public class CarServiceImpl implements CarService{
+public class CarServiceImpl implements CarService {
 	
 	@Autowired
 	private CarRepository repository;

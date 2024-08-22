@@ -43,7 +43,7 @@ public class CustomerManagementTest {
         management.setAddress("rajahmundry");
         management.setDrivingLicence("AP1234567890");
         management.setEmailId("jayasyam12356@gmail.com");
-        management.setMobileNumber(732465488);
+        management.setMobileNumber("732465488");
         management.setGender("male");
         management.setUserName("jayasyam");
     }
@@ -56,7 +56,7 @@ public class CustomerManagementTest {
         management1.setAddress("Hyderabad");
         management1.setDrivingLicence("AP1234567890");
         management1.setEmailId("jayasyam12356@gmail.com");
-        management1.setMobileNumber(732465488);
+        management1.setMobileNumber("732465488");
         management1.setGender("male");
         management1.setUserName("jayasyam");
     }
