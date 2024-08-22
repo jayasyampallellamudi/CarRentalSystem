@@ -1,6 +1,7 @@
 package com.javatrainingschool.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,8 +42,11 @@ public class CustomerServiceImpl implements CustomerService{
 		return repository.save(management2);
 	}
 
-	public void deleteCustomerById(int id) {
-		repository.delete(repository.findById(id).get());
+	public void deleteCustomerById(int customerId) {
+	    Optional<CustomerManagement> customerOpt = repository.findById(customerId);
+	    if (customerOpt.isPresent()) {
+	        repository.delete(customerOpt.get()); // Ensure this line is present
+	    }
 	}
 	
 }

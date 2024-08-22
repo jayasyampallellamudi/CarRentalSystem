@@ -1,5 +1,6 @@
 package com.javatrainingschool.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.hibernate.annotations.ManyToAny;
@@ -28,11 +29,10 @@ public class LeaseManagement {
     @JoinColumn(name = "carId", nullable = false)
     private CarManagement car;
     
-	private Date leaseStartDate;
-	private Date leaseEndDate;
+	private LocalDate leaseStartDate;
+	private LocalDate leaseEndDate;
 	private int leaseDuration;
 	private String leaseType;
-	
 	public int getLeaseId() {
 		return leaseId;
 	}
@@ -51,16 +51,16 @@ public class LeaseManagement {
 	public void setCar(CarManagement car) {
 		this.car = car;
 	}
-	public Date getLeaseStartDate() {
+	public LocalDate getLeaseStartDate() {
 		return leaseStartDate;
 	}
-	public void setLeaseStartDate(Date leaseStartDate) {
+	public void setLeaseStartDate(LocalDate leaseStartDate) {
 		this.leaseStartDate = leaseStartDate;
 	}
-	public Date getLeaseEndDate() {
+	public LocalDate getLeaseEndDate() {
 		return leaseEndDate;
 	}
-	public void setLeaseEndDate(Date leaseEndDate) {
+	public void setLeaseEndDate(LocalDate leaseEndDate) {
 		this.leaseEndDate = leaseEndDate;
 	}
 	public int getLeaseDuration() {
@@ -81,8 +81,8 @@ public class LeaseManagement {
 				+ leaseStartDate + ", leaseEndDate=" + leaseEndDate + ", leaseDuration=" + leaseDuration
 				+ ", leaseType=" + leaseType + "]";
 	}
-	public LeaseManagement(int leaseId, CustomerManagement customer, CarManagement car, Date leaseStartDate,
-			Date leaseEndDate, int leaseDuration, String leaseType) {
+	public LeaseManagement(int leaseId, CustomerManagement customer, CarManagement car, LocalDate leaseStartDate,
+			LocalDate leaseEndDate, int leaseDuration, String leaseType) {
 		super();
 		this.leaseId = leaseId;
 		this.customer = customer;
@@ -96,5 +96,6 @@ public class LeaseManagement {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	
 }
