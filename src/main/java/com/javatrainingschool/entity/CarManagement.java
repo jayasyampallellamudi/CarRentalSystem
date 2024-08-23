@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Car")
@@ -12,14 +14,29 @@ public class CarManagement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int carId;
+	
+	@NotBlank(message = "company cannot be blank")
 	private String company;
+	
+	@NotBlank(message = "model cannot be blank")
 	private String model;
+	
+	@NotNull(message = "year cannot be null")
 	private int year;
+	
+	@NotBlank(message = "color cannot be blank")
 	private String color;
+	
+	@NotBlank(message = "userName cannot be blank")
 	private String vin;
+	
+	@NotBlank(message = "userName cannot be blank")
 	private String licensePlateNumber;
 	private int seatingCapacity;
+	
+	@NotBlank(message = "userName cannot be blank")
 	private String accidentHistory;
+	
 	public int getCarId() {
 		return carId;
 	}

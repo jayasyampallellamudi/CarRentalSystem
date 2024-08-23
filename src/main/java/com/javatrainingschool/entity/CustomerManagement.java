@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
@@ -13,19 +15,28 @@ public class CustomerManagement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int custId;
-	@NotNull
+	
+	@NotBlank(message = "userName cannot be blank")
 	private String userName;
-	@NotNull
+	
+	@NotNull(message = "Age cannot be null")
+	@Min(value = 18, message = "Age must be a positive number")
 	private int age;
+	
 	private String gender;
-	@NotNull
-	private String mobileNumber;
-	@NotNull
-	private String emailId;
-	@NotNull
-	private String address;
-	@NotNull
-	private String drivingLicence;
+	
+    @NotBlank(message = "mobileNumber cannot be blank")
+    private String mobileNumber;
+
+    @NotBlank(message = "emailId cannot be blank")
+    private String emailId;
+
+    @NotBlank(message = "Address cannot be blank")
+    private String address;
+
+    @NotBlank(message = "Driving license cannot be blank")
+    private String drivingLicence;
+	
 	public int getCustId() {
 		return custId;
 	}

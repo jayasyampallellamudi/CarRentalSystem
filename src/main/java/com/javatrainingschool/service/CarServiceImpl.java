@@ -17,7 +17,7 @@ public class CarServiceImpl implements CarService {
 	
 	public CarManagement saveCar(CarManagement management) {
 		
-		return management;
+		return repository.save(management);
 	}
 
 	public List<CarManagement> retriveCar() {

@@ -99,15 +99,12 @@ public class CustomerManagementTest {
 
 	@Test
 	public void deleteCustomerByIdTest() {
-	    // Arrange
+		
 	    when(repository.findById(management.getCustId())).thenReturn(Optional.of(management));
 	    doNothing().when(repository).delete(any(CustomerManagement.class));
 
-	    // Act
 	    impl.deleteCustomerById(management.getCustId());
 
-	    // Assert
-	    // Verify that the repository's delete method was called with the correct object
 	    verify(repository, times(1)).delete(management);
 
 	    // Optionally verify that findById was also called

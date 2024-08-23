@@ -19,17 +19,25 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import com.javatrainingschool.entity.CarManagement;
 import com.javatrainingschool.entity.CustomerManagement;
 import com.javatrainingschool.entity.LeaseManagement;
+import com.javatrainingschool.repository.CarRepository;
+import com.javatrainingschool.repository.CustomerRepository;
 import com.javatrainingschool.repository.LeaseRepository;
 import com.javatrainingschool.service.LeaseServiceImpl;
 
 @SpringBootTest
 public class LeaseManagementTest {
+	
 	@Mock
 	LeaseRepository repository;
+	
+	@Mock
+	CustomerRepository customerRepository;
+	
+	@Mock
+	CarRepository carRepository;
 	
 	@InjectMocks
 	LeaseServiceImpl impl = new LeaseServiceImpl();
@@ -45,11 +53,12 @@ public class LeaseManagementTest {
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
+        
         car = new CarManagement();
         car.setCarId(1);
         customer = new CustomerManagement();
         customer.setCustId(1); 
-        
+     
         management = new LeaseManagement();
         management.setCar(car);
         management.setCustomer(customer);
@@ -62,10 +71,12 @@ public class LeaseManagementTest {
     @BeforeEach
     public void setUp1() {
         MockitoAnnotations.openMocks(this);
+        
         car = new CarManagement();
         car.setCarId(2);
         customer = new CustomerManagement();
         customer.setCustId(2); 
+        
         management1 = new LeaseManagement();
         management1.setCar(car);
         management1.setCustomer(customer);
@@ -108,6 +119,8 @@ public class LeaseManagementTest {
 	@Test
 	public void saveLeaseTest() {
 		when(repository.save(any(LeaseManagement.class))).thenReturn(management);
+		when(customerRepository.findById(management.getCustomer().getCustId())).thenReturn(Optional.of(management.getCustomer()));
+		when(carRepository.findById(management.getCustomer().getCustId())).thenReturn(Optional.of(management.getCar()));
 		LeaseManagement management2 =  impl.saveLease(management);
 		//assertEquals(1, management2.getLeaseId());
 		Assertions.assertThat(management2.getLeaseId()).isGreaterThan(0);

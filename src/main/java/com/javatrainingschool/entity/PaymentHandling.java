@@ -1,12 +1,11 @@
 package com.javatrainingschool.entity;
 
-import org.hibernate.annotations.ManyToAny;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Payment")
@@ -27,8 +26,12 @@ public class PaymentHandling {
     @JoinColumn(name = "carId", nullable = false)
     private CarManagement car;
     
+    @NotNull(message = "year cannot be null")
     private int amount;
+    
+    @NotNull(message = "status start date cannot be null")
     private String status;
+    
 	public int getPaymentId() {
 		return paymentId;
 	}

@@ -1,9 +1,6 @@
 package com.javatrainingschool.entity;
 
 import java.time.LocalDate;
-import java.util.Date;
-
-import org.hibernate.annotations.ManyToAny;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +9,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Lease")
@@ -29,10 +28,18 @@ public class LeaseManagement {
     @JoinColumn(name = "carId", nullable = false)
     private CarManagement car;
     
+    @NotNull(message = "Lease start date cannot be null")
 	private LocalDate leaseStartDate;
+    
+    @NotNull(message = "Lease start date cannot be null")
 	private LocalDate leaseEndDate;
+    
+    @NotNull(message = "Lease start date cannot be null")
 	private int leaseDuration;
+    
+    @NotBlank(message = "leasetype can not be null")
 	private String leaseType;
+    
 	public int getLeaseId() {
 		return leaseId;
 	}
@@ -94,7 +101,6 @@ public class LeaseManagement {
 	}
 	public LeaseManagement() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	
