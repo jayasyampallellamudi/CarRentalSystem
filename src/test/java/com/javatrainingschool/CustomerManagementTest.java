@@ -99,7 +99,7 @@ public class CustomerManagementTest {
 
 	@Test
 	public void deleteCustomerByIdTest() {
-		
+			
 	    when(repository.findById(management.getCustId())).thenReturn(Optional.of(management));
 	    doNothing().when(repository).delete(any(CustomerManagement.class));
 
