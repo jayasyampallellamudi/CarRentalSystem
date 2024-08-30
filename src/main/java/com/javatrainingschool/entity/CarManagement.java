@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "Car")
 public class CarManagement {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int carId;
 	
 	@NotBlank(message = "company cannot be blank")

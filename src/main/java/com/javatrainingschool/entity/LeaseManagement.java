@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 public class LeaseManagement {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int leaseId;
 	
 	@ManyToOne

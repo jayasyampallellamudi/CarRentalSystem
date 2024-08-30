@@ -22,7 +22,7 @@ import com.javatrainingschool.service.PaymentServiceImpl;
 
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("api/admin")
 @Validated
 public class AdminController {
 	
@@ -78,7 +78,7 @@ public class AdminController {
 		return update;
 	}
 	
-	@DeleteMapping(value = "/deletecustomer/{carId}",  produces = "application/json")
+	@DeleteMapping(value = "/deletecar/{carId}",  produces = "application/json")
 	public String deleteCar(@PathVariable("carId") int id) {
 		carServiceImpl.deleteCarById(id);
 		return "Deleted Succesfully";
@@ -114,11 +114,11 @@ public class AdminController {
 	}
 	
 	@GetMapping(value = "/getleases" ,  produces = "application/json")
-	public List <CarManagement> getLeases(){
-		return carServiceImpl.retriveCar();
+	public List <LeaseManagement> getLeases(){
+		return leaseServiceImpl.retriveLease();
 	}
 	
-	@GetMapping(value = "/getcar/{leaseId}" ,  produces = "application/json")
+	@GetMapping(value = "/getlease/{leaseId}" ,  produces = "application/json")
 	public LeaseManagement getLease(@PathVariable("leaseId") int leaseId){
 		return leaseServiceImpl.retriveLeaseById(leaseId);
 	}
@@ -135,7 +135,7 @@ public class AdminController {
 		return update;
 	}
 	
-	@DeleteMapping(value = "/deletelease/{paymentId}" ,  produces = "application/json")
+	@DeleteMapping(value = "/deletepayment/{paymentId}" ,  produces = "application/json")
 	public String deletePayment(@PathVariable("paymentId") int id) {
 		paymentServiceImpl.deletePaymentById(id);
 		return "Deleted Succesfully";
@@ -146,7 +146,7 @@ public class AdminController {
 		return paymentServiceImpl.retrivePayment();
 	}
 	
-	@GetMapping(value = "/getcar/{paymentId}" ,  produces = "application/json")
+	@GetMapping(value = "/getpayment/{paymentId}" ,  produces = "application/json")
 	public PaymentHandling getPayment(@PathVariable("paymentId") int paymentId){
 		return paymentServiceImpl.retrivePaymentById(paymentId);
 	}

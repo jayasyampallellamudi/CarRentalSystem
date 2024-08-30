@@ -23,7 +23,6 @@ public class LeaseServiceImpl implements LeaseService{
 	private CarRepository carRepository;
 	
 	public LeaseManagement saveLease(LeaseManagement management) {
-		System.out.println(management.getCustomer().getCustId());
 		customerRepository.findById(management.getCustomer().getCustId()).orElseThrow(() -> new CustomerException(management.getCustomer().getCustId()));
 		carRepository.findById(management.getCar().getCarId()).orElseThrow(() -> new CustomerException(management.getCar().getCarId()));
 		return repository.save(management);

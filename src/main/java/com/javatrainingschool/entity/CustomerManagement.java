@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "Customer")
 public class CustomerManagement {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int custId;
 	
 	@NotBlank(message = "userName cannot be blank")

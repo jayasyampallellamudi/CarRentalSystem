@@ -30,7 +30,7 @@ public class AuthenticationController {
 	
 	
 	//http://localhost:8080/authenticate
-	@RequestMapping(value = "/getToken", method = RequestMethod.POST)
+	@RequestMapping(value = "/getToken/token", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
